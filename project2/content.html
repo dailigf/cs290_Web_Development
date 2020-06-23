@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="content.css" />
+    <title>Dailig - HW Assignment 2</title>
+</head>
+<body>
+    <h1>Dailig - Assignment 2</h1>
+    <!--Pokemon Table-->
+    <!--Idea was taken from Colt Steele's Udemy Web Development Class-->
+    <!--https://www.udemy.com/course/the-web-developer-bootcamp/learn/lecture/3861444?start=0#overview-->
+    <table>
+        <caption>Pokedex for first generation pokemon</caption>
+        <!--Table Header-->
+        <thead>
+            <tr>
+                <th class="col1 row1"></th>
+                <th class="row1">Image</th>
+                <th class="row1">Type</th>
+                <th class="row1">Ability</th>
+                <th class="row1">Evolves Into</th>
+                <th class="row1">Species</th>
+            </tr>
+        </thead>
+        <tr>
+            <!--Pikachu Entry-->
+            <th class="col1">Pikachu</th>
+            <td><img src="https://vignette.wikia.nocookie.net/pokemon/images/0/0d/025Pikachu.png/revision/latest/scale-to-width-down/350?cb=20200620223403" /></td>
+            <td>Electric</td>
+            <td>Lightning Rod</td>
+            <td><a href="https://pokemon.fandom.com/wiki/Raichu">Raichu</a></td>
+            <td>Mouse</td>
+        </tr>
+        <tr>
+            <!--Bulbasaur Entry-->
+            <th class="col1">Bulbasaur</th>
+            <td><img src="https://vignette.wikia.nocookie.net/pokemon/images/2/21/001Bulbasaur.png/revision/latest/scale-to-width-down/350?cb=20200620223551" /></td>
+            <td>Grass/Poison</td>
+            <td>Overgrow</td>
+            <td><a href="https://pokemon.fandom.com/wiki/Ivysaur">Ivysaur</a></td>
+            <td>Seed</td>
+        </tr>
+
+        <tr>
+            <!--Charmander Entry-->
+            <th class="col1">Charmander</th>
+            <td><img src="https://vignette.wikia.nocookie.net/pokemon/images/7/73/004Charmander.png/revision/latest/scale-to-width-down/350?cb=20200620223744" /></td>
+            <td>Fire</td>
+            <td>Blaze</td>
+            <td><a href="https://pokemon.fandom.com/wiki/Charmeleon">Charmeleon</a></td>
+            <td>Lizard</td>
+        </tr>
+
+        <tr>
+            <!--Squirtle Entry-->
+            <th class="col1">Squirtle</th>
+            <td><img src="https://vignette.wikia.nocookie.net/pokemon/images/3/39/007Squirtle.png/revision/latest/scale-to-width-down/350?cb=20200620223922" /></td>
+            <td>Water</td>
+            <td>Torrent</td>
+            <td><a href="https://pokemon.fandom.com/wiki/Wartortle">Wartortle</a></td>
+            <td>Turtle</td>
+        </tr>
+
+        <tr>
+            <th class="col1">Cubone</th>
+            <td><img src="https://vignette.wikia.nocookie.net/pokemon/images/2/2a/104Cubone.png/revision/latest/scale-to-width-down/350?cb=20140328205304" /></td>
+            <td>Ground</td>
+            <td>Rock Head</td>
+            <td><a href="https://pokemon.fandom.com/wiki/Marowak">Marowak</a></td>
+            <td>Bone Keeper</td>
+        </tr>
+
+        <tr>
+            <td id="footer1" colspan="2">Footer 1</td>
+            <td id="footer2" colspan="4">Footer 2</td>
+        </tr>
+    </table>
+
+    <!--List of thing we will be discussing in CS290-->
+    <div>
+        <p><strong>Topics that we will be learning in CS290 - Web Development</strong></p>
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>Javascript</li>
+        </ol>
+    </div>
+
+    <!--This task number 3, the div inside a div-->
+    <div class="outer-content">
+        <div class="inner-content"><span>I'm a box inside of a box</span></div>
+    </div>
+
+    <!--Post Form-->
+    <form class="form post" action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post">
+        <fieldset>
+            <legend>Post Form</legend>
+            <div class="input text">
+                <label for="text">Text Here:</label>
+                <input id="text" type="text" name="text_input"/>
+            </div>
+            <div class="input number">
+                <label for="number">Number Here:</label>
+                <input id="number" type="number" name="numerical_input" />
+            </div>
+            <div class="input password">
+                <label for="password">Password Here:</label>
+                <input id="password" type="password" name="passowrd_input"/>
+            </div>
+            <div class="input button">
+                <div class="button-section">
+                    <p>Select Between:</p>
+                    <div class="input-button">
+                        <input name="candy" id="snickers" type="radio" />
+                        <label for="snickers">Snickers</label>
+                    </div>
+                    <div class="input-button">
+                        <input name="candy" id="skittles" type="radio" />
+                        <label for="skittles">Skittles</label>
+                    </div>
+                    <div class="input-button">
+                        <input name="candy" id="mentos" type="radio" />
+                        <label for="mentos">Mentos</label>
+                    </div>
+                    <div>
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <!--Get Form-->
+    <form class="form get" action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="get">
+        <fieldset>
+            <legend>Get Form</legend>
+            <div class="input text">
+                <label for="text">Text Here:</label>
+                <input id="text" type="text" name="text_input"/>
+            </div>
+            <div class="input number">
+                <label for="number">Number Here:</label>
+                <input id="number" type="number" name="numerical_input" />
+            </div>
+            <div class="input password">
+                <label for="password">Password Here:</label>
+                <input id="password" type="password" name="passowrd_input"/>
+            </div>
+            <div class="input button">
+                <div class="button-section">
+                    <p>Select Between:</p>
+                    <div class="input-button">
+                        <input name="candy" id="snickers" type="radio" />
+                        <label for="snickers">Snickers</label>
+                    </div>
+                    <div class="input-button">
+                        <input name="candy" id="skittles" type="radio" />
+                        <label for="skittles">Skittles</label>
+                    </div>
+                    <div class="input-button">
+                        <input name="candy" id="mentos" type="radio" />
+                        <label for="mentos">Mentos</label>
+                    </div>
+                    <div>
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>
