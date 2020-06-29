@@ -25,49 +25,48 @@ let object4 = {
 	"array": [1, 2, 3, 4, 5]
 }
 function deepEqual(obj1, obj2){
+	//Variable to hold return value of the function
 	var retVar = true;
-	console.log("obj1: " + JSON.stringify(obj1));
-	console.log("obj2: " + JSON.stringify(obj2));
-	//If objects or properties are equal, return true
+
+	//Check to see of properties are equal to each other
 	if(typeof obj1 !== 'object' && typeof obj2 !== 'object'){
 		if(obj1 !== obj2){
-			console.log("properties not equal");
 			getVar = false;
 			return getVar;
 		}
+	//Check to see of there are nulls
 	}else if(obj1 === null || obj2 === null){
-		console.log("One of the objects are null")
 		retVar = false;
 		return retVar;
+
+	//Check to see if obj1 and obj2 are of type 'object'
 	}else if(typeof obj1 !== 'object' || typeof obj2 !== 'object'){
-		console.log("one is not an object")
 		retVar = false;
 		return retVar;
+
+	//If we make it here, then obj1 and obj2 are objects
 	}else{
 		//Check to see if lengths are equal
 		if(Object.keys(obj1).length !== Object.keys(obj2).length){
-			console.log("different lengths");
 			retVar = false;
 			return retVar;
 		}
+		//Iterate through objects, call deepEqual recursively
 		for(var property in obj1){
 			//If property does not exit in obj2 return false
 			if(!obj2.hasOwnProperty(property)){ 
-				console.log("property does not exit in obj2");
 				retVar = false;
 				return retVar;
 			}
 
 			//Check to see if properties are equal, if not return false
 			if(!deepEqual(obj1[property], obj2[property])){ 
-				console.log("property1 is not equal to property 2");
 				retVar = false;
 				return retVar;
 			}
 		}
 	}
 	//If we made it here everythin is equal, return true
-	console.log("objects are equal");
 	return retVar;
 }
 
