@@ -66,7 +66,7 @@ function deepEqual(obj1, obj2){
 			}
 		}
 	}
-	//If we made it here everythin is equal, return true
+	//If we made it here everything is equal, retVar is still true
 	return retVar;
 }
 
