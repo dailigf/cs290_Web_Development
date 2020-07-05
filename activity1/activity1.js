@@ -22,7 +22,7 @@ function sum(array){
 //Part 2: a) write a function that is assigned to a variable; b) call function before it is assigned
 
 //Call function before it is assigned, this will not work
-console.log(min(numArray));
+//console.log(min(numArray));
 
 var min = function(array){
 	temp = array[0];
