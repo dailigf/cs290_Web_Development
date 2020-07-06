@@ -1,9 +1,17 @@
  //You are not permitted to change this in any way
 function Student(name, major, yearInSchool, club) {
-	this.name = name; // string, (e.g. "Jim", "Pam", "Michael")
-	this.major = major; // string, (e.g. "Computer Science", "Art", "Business")
-	this.yearInSchool = yearInSchool; // int, (e.g. 1, 2, 3, 4)
-	this.club = club; // string, (e.g. "Improv", "Art")
+    this.name = name; // string, (e.g. "Jim", "Pam", "Michael")
+    this.major = major; // string, (e.g. "Computer Science", "Art", "Business")
+    this.yearInSchool = yearInSchool; // int, (e.g. 1, 2, 3, 4)
+    this.club = club; // string, (e.g. "Improv", "Art")
+    this.logMe = function(x){
+        if(x){
+            console.log(this.name + " - " + this.major + " - " + this.yearInSchool + " - " + this.club);
+
+        }else{
+            console.log(this.name + " - " + this.major + " - " + this.yearInSchool);
+        }
+    }
 }
 
 var students = [
@@ -15,10 +23,11 @@ var students = [
   new Student("Toby", "Human Resources", 3, "Photography")
 ];
 
+
 /* This function sorts arrays using an arbitrary comparator. You pass it a comparator 
  * and an array of objects appropriate for that comparator and it will return a new array 
  * which is sorted with the largest object in index 0 and the smallest in the last index
- * Bubble Sort algorithm was used
+ * Bubble Sort algorithm was used.  The "greatest will be at the end of the array"
  * Source:  https://www.youtube.com/watch?v=Jdtq5uKz-w4*/
 function sortArr(comparator, array) {
 	// your code here
@@ -63,7 +72,7 @@ makes which are alphabetically earlier in the alphabet are "greater" than ones t
 come later (from A-Z).*/
 function majorComparator(student1, student2) {
 	// your code here
-	if(student1.major.toLowerCase() <= student2.major.toLowerCase()){
+	if(student1.major.toLowerCase() >= student2.major.toLowerCase()){
 		return true;
 	}else{
 		return false;
@@ -82,8 +91,8 @@ function clubComparator(student1, student2) {
 		"cat": 2,
 		"improv": 1
 	};
-	let student1Val = 0;
-	let student2Val = 0;
+	let student1Val = 5;
+	let student2Val = 5;
 	if(legend.hasOwnProperty(student1.club.toLowerCase())){
 		student1Val = legend[student1.club.toLowerCase()];
 
@@ -94,7 +103,7 @@ function clubComparator(student1, student2) {
 
 	// your code here
 	if(student1Val === student2Val){
-		if(student1.yearInSchool >= student2.yearInSchool){
+		if(student1.yearInSchool <= student2.yearInSchool){
 			return true;
 		}else{
 			return false;
@@ -106,6 +115,38 @@ function clubComparator(student1, student2) {
 	}
 }
 
-console.log(students);
-sortArr(clubComparator, students);
-console.log(students);
+function printObjects(){
+    var stars = "**********";
+    //Print Students by year in school
+    sortArr(yearComparator, students);
+    console.log("The students sorted by year in school are: ")
+    console.log(stars);
+    for(var i = 0; i < students.length; i++){
+        students[i].logMe();
+    }
+    console.log(stars + '\n');
+
+    //Print Students sorted by major
+    sortArr(majorComparator, students);
+    console.log("The students sorted by major are: ")
+    console.log(stars);
+    for(var i = 0; i < students.length; i++){
+        students[i].logMe();
+    }
+    console.log(stars + '\n');
+
+    //Print Students sorted by club
+    sortArr(clubComparator, students);
+    console.log("The students sorted by club are: ")
+    console.log(stars);
+    for(var i = 0; i < students.length; i++){
+        students[i].logMe(true);
+    }
+    console.log(stars + '\n');
+
+}
+
+//console.log(students);
+//sortArr(clubComparator, students);
+//console.log(students);
+printObjects();
