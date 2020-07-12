@@ -1,4 +1,9 @@
- //You are not permitted to change this in any way
+/**************************************************************************************************** 
+ * Author: Francis C. Dailig  									    *
+ * Desc: Homework 3       									    *
+ * Date: 13 July 2020                                                                               *
+ ***************************************************************************************************/
+//You are not permitted to change this in any way
 function Student(name, major, yearInSchool, club) {
     this.name = name; // string, (e.g. "Jim", "Pam", "Michael")
     this.major = major; // string, (e.g. "Computer Science", "Art", "Business")
@@ -24,6 +29,7 @@ var students = [
 ];
 
 
+
 /* This function sorts arrays using an arbitrary comparator. You pass it a comparator 
  * and an array of objects appropriate for that comparator and it will return a new array 
  * which is sorted with the largest object in index 0 and the smallest in the last index
@@ -41,6 +47,7 @@ function sortArr(comparator, array) {
 			}
 		}
 	}
+	return array;
 }
 	
 /* A comparator takes two arguments and uses some algorithm to compare them. If the first 
@@ -117,36 +124,34 @@ function clubComparator(student1, student2) {
 
 function printObjects(){
     var stars = "**********";
+
     //Print Students by year in school
-    sortArr(yearComparator, students);
+    studArr = sortArr(yearComparator, students);
     console.log("The students sorted by year in school are: ")
     console.log(stars);
-    for(var i = 0; i < students.length; i++){
-        students[i].logMe();
+    for(var i = 0; i < studArr.length; i++){
+        studArr[i].logMe();
     }
     console.log(stars + '\n');
 
     //Print Students sorted by major
-    sortArr(majorComparator, students);
+    studArr = sortArr(majorComparator, students);
     console.log("The students sorted by major are: ")
     console.log(stars);
-    for(var i = 0; i < students.length; i++){
-        students[i].logMe();
+    for(var i = 0; i < studArr.length; i++){
+        studArr[i].logMe();
     }
     console.log(stars + '\n');
 
     //Print Students sorted by club
-    sortArr(clubComparator, students);
+    studArr = sortArr(clubComparator, students);
     console.log("The students sorted by club are: ")
     console.log(stars);
-    for(var i = 0; i < students.length; i++){
-        students[i].logMe(true);
+    for(var i = 0; i < studArr.length; i++){
+        studArr[i].logMe(true);
     }
     console.log(stars + '\n');
 
 }
 
-//console.log(students);
-//sortArr(clubComparator, students);
-//console.log(students);
 printObjects();
