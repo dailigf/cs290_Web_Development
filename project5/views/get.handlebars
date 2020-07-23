@@ -1,0 +1,21 @@
+<h1>Welcome to the GET page</h1>
+
+{{!if data the list is not empty render a table}}
+{{#if dataList}}
+	<table style="border: 1px solid black">
+		<tr>
+			<th style="border: 1px solid black">Key</th>
+			<th style="border: 1px solid black">Value</th>
+		</tr>
+		{{#each dataList}}
+			<tr>
+				<td style="border: 1px solid black">{{this.name}}</td>
+				<td style="border: 1px solid black">{{this.value}}</td>
+			</tr>
+		{{/each}}
+	</table>
+{{else}}
+	<h1>items empty</h1>
+{{/if}}
+
+
