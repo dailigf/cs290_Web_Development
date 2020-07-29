@@ -20,3 +20,9 @@ h1{
 	margin: 0 auto;
 }
 
+#banner{
+	background-color: white;
+	height: 30px;
+	text-align: center;
+}
+
