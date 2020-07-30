@@ -1,5 +1,5 @@
-
-var colors = generateRandomColors(6);
+var numOfColors = 6;
+var colors = generateRandomColors(numOfColors);
 var h1 = document.querySelector("h1");
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickRandomColor();;
@@ -7,15 +7,61 @@ var displayMessage = document.getElementById("message");
 var colorDisplay = document.getElementById("colorDisplay");
 var banner = document.getElementById("banner");
 var resetBtn = document.getElementById("reset");
+var easyBtn = document.getElementById("easyBtn");
+var hardBtn = document.getElementById("hardBtn");
 
 //Display the color that the player needs to guess
 colorDisplay.textContent = pickedColor;
 
 
+//Create listeners for the easy and hard buttons
+easyBtn.addEventListener("click", function(){
+	easyBtn.classList.add("selected");
+	hardBtn.classList.remove("selected");
+	//set numOfColors to 3
+	numOfColors = 3;
+	//generate a new color array of 3 colors
+	colors = generateRandomColors(numOfColors);
+	//pick a new color
+	pickedColor = pickRandomColor();
+	colorDisplay.textContent = pickedColor;
+	//Hide the bottom three squares
+	for(var i = 0; i < squares.length; i++){
+		//if there is a color in the array at index i
+		//set the color of the square
+		if(colors[i]){
+			squares[i].style.backgroundColor = colors[i];
+		}else{
+			squares[i].style.display = "none";
+		}
+
+	}
+
+});
+
+hardBtn.addEventListener("click", function(){
+	hardBtn.classList.add("selected");
+	easyBtn.classList.remove("selected");
+
+	if(numOfColors !== 6){
+		//set numOfColors to 6
+		numOfColors = 6;
+		//Create a new colors array
+		colors = generateRandomColors(numOfColors);
+		//pick a new color
+		pickedColor = pickRandomColor();
+		colorDisplay.textContent = pickedColor;
+		//set the squares
+		for(var i = 0; i < squares.length; i++){
+			squares[i].style.display = "block";
+			squares[i].style.backgroundColor = colors[i];
+		}
+	}
+});
 //Create event listener for the reset button
 resetBtn.addEventListener("click", function(){
 	//create a new color array
-	colors = generateRandomColors(6);
+	colors = generateRandomColors(numOfColors);
 	//Get new picked Color
 	pickedColor = pickRandomColor();
 	//Update colorDisplay
@@ -24,8 +70,9 @@ resetBtn.addEventListener("click", function(){
 	for(var i = 0; i < colors.length; i++){
 		squares[i].style.backgroundColor = colors[i];
 	}
-	h1.style.backgroundColor = "#232323";
+	h1.style.backgroundColor = "steelblue";
 	this.innerHTML = "New Colors";
+	displayMessage.textContent = "";
 });
 
 for(var i = 0; i < squares.length; i++){
