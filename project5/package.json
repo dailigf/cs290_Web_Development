@@ -1,12 +1,12 @@
 {
-  "name": "hello-world",
+  "name": "GET and POST Checker",
   "version": "1.0.0",
-  "description": "Hello world with express and node.js",
+  "description": "HW5 - GET and POST Checker",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "OSU",
+  "author": "Francis C. Dailig",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.13.3",
