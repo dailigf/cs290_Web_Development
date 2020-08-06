@@ -1,0 +1,42 @@
+<h1>Workout Tracker</h1>
+{{!if the Context has JSON Object in it}}
+<h2>Testing myHelpers</h2>
+<p>{{helloWorld}}</p>
+{{#if results}}
+	<table style="border: 1px solid black">
+		<tr>
+			<th style="display: none;">ID</th>
+			<th style="border: 1px solid black">Name</th>
+			<th style="border: 1px solid black">Reps</th>
+			<th style="border: 1px solid black">Weight</th>
+			<th style="border: 1px solid black">Date</th>
+			<th style="border: 1px solid black">lbs</th>
+			<th style="border: 1px solid black">Edit</th>
+			<th style="border: 1px solid black">Delete</th>
+
+		</tr>
+		{{#each results}}
+			<tr>
+				<td style="display: none">{{this.id}}</td>
+				<td style="border: 1px solid black">{{this.name}}</td>
+				<td style="border: 1px solid black">{{this.reps}}</td>
+				<td style="border: 1px solid black">{{this.weight}}</td>
+				<td style="border: 1px solid black">{{moment this.date format="MM-DD-YYYY"}}</td>
+				<td style="border: 1px solid black">
+					{{#if this.lbs}}
+						lbs
+					{{else}}
+						Kg
+					{{/if}}
+				</td>
+				<td style="border: 1px solid black">
+					<button>Edit</button>
+				</td>
+				<td style="border: 1px solid black"><button>Delete</button></td>
+			</tr>
+		{{/each}}
+	</table>
+{{else}}
+	<h1>empty list</h1>
+{{/if}}
+
