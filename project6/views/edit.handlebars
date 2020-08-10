@@ -1,0 +1,30 @@
+<h1>Edit Page</h1>
+
+{{#if results}}
+		{{#each results}}
+			<form action="http://ec2-52-79-180-96.ap-northeast-2.compute.amazonaws.com:31338/update" method="POST">
+				<label for="name">Exercise:</label>
+				<input type="text" name="name" value="{{{this.name}}}"><br>
+				<label for="reps">Reps:</label>
+				<input type="text" name="reps" value="{{{this.reps}}}"><br>
+				<label for="weight">Weight:</label>
+				<input type="text" name="weight" value="{{{this.weight}}}"><br>
+				<label for="Date">Date:</label>
+				<input type="text" name="date" value="{{{moment this.date format="YYYY-MM-DD"}}}"><br>
+				<label for="lbs">LBS:</label>
+				{{#if this.lbs}}
+					<input type="radio" name="lbs" value="1" checked>
+				{{else}}
+					<input type="radio" name="lbs" value="1">
+				{{/if}}
+				<label for="kg">KG:</label>
+				{{#if this.lbs}}
+					<input type="radio" name="lbs" value="0"><br>
+				{{else}}
+					<input type="radio" name="lbs" value="0" checked><br>
+				{{/if}}
+				<input type="hidden" name="id" value="{{{this.id}}}">
+				<input type="submit" value="Submit" id="submit-new-edit">
+			</form>
+		{{/each}}
+{{/if}}

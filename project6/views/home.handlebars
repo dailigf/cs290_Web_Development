@@ -1,10 +1,23 @@
 <h1>Workout Tracker</h1>
+{{!Create a form for adding a new workout}}
+<form>
+	<label for="name">Exercise:</label>
+	<input type="text" name="name" id="name"><br>
+	<label for="reps">Reps:</label>
+	<input type="number" name="reps" id="reps"><br>
+	<label for="weight">Weight:</label>
+	<input type="number" name="weight" id="weight"><br>
+	<label for="date">Date:</label>
+	<input type="date" name="date" id="date"><br>
+	<label for="lbs">LBS(1)|KG(0):</label>
+	<input type="number" name="lbs" min="0" max="1" id="lbs">
+	<button id="submitBtn">Submit</button>
+</form>
+
 {{!if the Context has JSON Object in it}}
-<h2>Testing myHelpers</h2>
-<p>{{helloWorld}}</p>
 {{#if results}}
 	<table style="border: 1px solid black">
-		<tr>
+		<tr id="row-{{{this.id}}}">
 			<th style="display: none;">ID</th>
 			<th style="border: 1px solid black">Name</th>
 			<th style="border: 1px solid black">Reps</th>
@@ -15,13 +28,14 @@
 			<th style="border: 1px solid black">Delete</th>
 
 		</tr>
+		<tbody>
 		{{#each results}}
-			<tr>
+			<tr class="row" id="row-{{{this.id}}}">
 				<td style="display: none">{{this.id}}</td>
 				<td style="border: 1px solid black">{{this.name}}</td>
 				<td style="border: 1px solid black">{{this.reps}}</td>
 				<td style="border: 1px solid black">{{this.weight}}</td>
-				<td style="border: 1px solid black">{{moment this.date format="MM-DD-YYYY"}}</td>
+				<td style="border: 1px solid black">{{moment this.date format="YYYY-MM-DD"}}</td>
 				<td style="border: 1px solid black">
 					{{#if this.lbs}}
 						lbs
@@ -30,13 +44,17 @@
 					{{/if}}
 				</td>
 				<td style="border: 1px solid black">
-					<button>Edit</button>
+					<button class="edit-btn" id="{{{this.id}}}">Edit</button>
 				</td>
-				<td style="border: 1px solid black"><button>Delete</button></td>
+				<td style="border: 1px solid black">
+					<button class="delete-btn" id="{{{this.id}}}">Delete</button>
+				</td>
 			</tr>
 		{{/each}}
+		</tbody>
 	</table>
 {{else}}
 	<h1>empty list</h1>
 {{/if}}
+
 
